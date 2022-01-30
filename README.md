@@ -1,1 +1,2 @@
-# biogaz
+# Biogaz
+Projet Biogaz
