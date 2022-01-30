@@ -1,10 +1,17 @@
 import streamlit as st
 import pandas as pd
-import altair as alt
+from multipage import Multipage
+from pages import informations, potentiels
 
+#Création de l'instance app
+app = Multipage()
+
+# Titre Page général
 st.title('Projet Biogaz')
-df = pd.read_csv('potentiels-methanisation.csv', sep=';', index_col=1)
-st.header('Potentiel de méthanisation (GWh/an)')
 
-st.write(df)
-st.bar_chart(df['Potentiel total de méthanisation (GWh/an)'])
+# Ajouter toutes les pages
+app.add_page('Potentiels méthanisation', potentiels.app)
+app.add_page('Informations', informations.app)
+
+# Lancement App
+app.run()
